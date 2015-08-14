@@ -9,8 +9,7 @@ module SpreeMultiDomain
         Rails.application.config.cache_classes ? require(c) : load(c)
       end
 
-      # Spree::Config.searcher_class = Spree::Search::MultiDomain
-      # ApplicationController.send :include, SpreeMultiDomain::MultiDomainHelpers
+      Spree::Config.searcher_class = Spree::Search::MultiDomain
     end
 
     config.to_prepare &method(:activate).to_proc
@@ -36,6 +35,16 @@ module SpreeMultiDomain
         end
 
         alias_method_chain :find_layout, :multi_store
+      end
+    end
+
+    initializer "add current_store to build_searcher" do |app|
+      Spree::Core::ControllerHelpers::Search.class_eval do
+        def build_searcher_with_store(params)
+          build_searcher_without_store(params.merge(store: current_store))
+        end
+
+        alias_method_chain :build_searcher, :store
       end
     end
 

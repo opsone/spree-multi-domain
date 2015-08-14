@@ -15,13 +15,12 @@ module Spree
     has_attached_file :logo,
       :styles => { :mini => '48x48>', :small => '100x100>', :medium => '250x250>' },
       :default_style => :medium,
-      :url => 'stores/:id/:style/:basename.:extension',
-      :path => 'stores/:id/:style/:basename.:extension',
-      :convert_options => { :all => '-strip -auto-orient' }
+      default_url: '/stores/noimage.png',
+      url: '/stores/:id/:style/:basename.:extension',
+      path: ':rails_root/public/stores/:id/:style/:basename.:extension',
+      convert_options: { :all => '-strip -auto-orient' }
 
-    if respond_to? :logo_file_name
-      validates_attachment_file_name :logo, :matches => [/png\Z/i, /jpe?g\Z/i]
-    end
+    validates_attachment :logo, :content_type => { :content_type => %w(image/jpeg image/jpg image/png image/gif) }
 
   end
 end

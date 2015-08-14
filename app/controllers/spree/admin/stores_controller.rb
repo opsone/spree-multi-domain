@@ -21,4 +21,5 @@ class Spree::Admin::StoresController < Spree::Admin::ResourceController
     def load_shipping_methods
       @shipping_methods = Spree::ShippingMethod.all
     end
+
 end

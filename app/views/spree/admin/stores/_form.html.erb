@@ -75,12 +75,24 @@
         <% end %>
       </div>
 
-      <div data-hook="default_currency">
-        <%= f.field_container :default_currency, class: ['form-group'] do %>
-          <%= f.label :default_currency, Spree.t(:default_currency) %>
-          <%= f.text_field :default_currency, :class => 'form-control' %>
-        <% end %>
+      <div class="panel panel-default currency">
+        <div class="panel-heading">
+          <h1 class="panel-title">
+            <%= Spree.t(:currency_settings)%>
+          </h1>
+        </div>
+
+        <div class="panel-body">
+          <div class="form-group">
+            <%= label_tag :currency, Spree.t(:choose_currency) %>
+            <%= select_tag :currency, currency_options %>
+          </div>
+        </div>
       </div>
+      <script>
+        $('#currency').select2();
+      </script>
+
     </div>
 
   </div>

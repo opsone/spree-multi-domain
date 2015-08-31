@@ -1,52 +1,58 @@
 <div class="row">
   <div data-hook="stores">
     <div data-hook="admin_store_form_fields_left" class="col-md-6">
-
-      <div data-hook="name">
-        <%= f.field_container :name, class: ['form-group'] do %>
-          <%= f.label :name, Spree.t(:store_name) %><br />
-          <%= f.text_field :name, :class => 'form-control' %>
-          <%= error_message_on :store, :name %>
-        <% end %>
-      </div>
-
-      <div data-hook="code">
-        <%= f.field_container :code, class: ['form-group'] do %>
-          <%= f.label :code, Spree.t(:store_code) %><br />
-          <%= f.text_field :code, :class => 'form-control' %>
-          <%= error_message_on :store, :code %>
-        <% end %>
-      </div>
-
-      <div data-hook="default" class="form-group">
-        <strong><%= Spree.t(:default) %></strong>
-
-        <div class="radio">
-          <%= f.label :default, Spree.t(:default) do %>
-            <%= f.radio_button :default, "true" %>
-            <%= Spree.t(:say_yes) %>
-          <% end %>
-          <%= f.label :default, Spree.t(:default) do %>
-            <%= f.radio_button :default, "false" %>
-            <%= Spree.t(:say_no) %>
-          <% end %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <%= Spree.t(:general_parameters)%>
         </div>
-      </div>
+        <div class="panel-body">
+          <div data-hook="name">
+            <%= f.field_container :name, class: ['form-group'] do %>
+              <%= f.label :name, Spree.t(:store_name) %><br />
+              <%= f.text_field :name, :class => 'form-control' %>
+              <%= error_message_on :store, :name %>
+            <% end %>
+          </div>
 
-      <div data-hook="mail_form_address">
-        <%= f.field_container :mail_from_address, class: ['form-group'] do %>
-          <%= f.label :mail_from_address, Spree.t(:send_mails_as) %><br />
-          <%= f.text_field :mail_from_address, :class => 'form-control' %>
-          <%= error_message_on :store, :mail_from_address %>
-        <% end %>
-      </div>
+          <div data-hook="code">
+            <%= f.field_container :code, class: ['form-group'] do %>
+              <%= f.label :code, Spree.t(:store_code) %><br />
+              <%= f.text_field :code, :class => 'form-control' %>
+              <%= error_message_on :store, :code %>
+            <% end %>
+          </div>
 
-      <div data-hook="url">
-        <%= f.field_container :url, class: ['form-group'] do %>
-          <%= f.label :url, Spree.t(:domains) %><br />
-          <%= f.text_area :url, :cols => 60, :rows => 4, :class => 'form-control' %>
-          <%= error_message_on :store, :url %>
-        <% end %>
+          <div data-hook="default" class="form-group">
+            <strong><%= Spree.t(:default) %></strong>
+
+            <div class="radio">
+              <%= f.label :default, Spree.t(:default) do %>
+                <%= f.radio_button :default, "true" %>
+                <%= Spree.t(:say_yes) %>
+              <% end %>
+              <%= f.label :default, Spree.t(:default) do %>
+                <%= f.radio_button :default, "false" %>
+                <%= Spree.t(:say_no) %>
+              <% end %>
+            </div>
+          </div>
+
+          <div data-hook="mail_form_address">
+            <%= f.field_container :mail_from_address, class: ['form-group'] do %>
+              <%= f.label :mail_from_address, Spree.t(:send_mails_as) %><br />
+              <%= f.text_field :mail_from_address, :class => 'form-control' %>
+              <%= error_message_on :store, :mail_from_address %>
+            <% end %>
+          </div>
+
+          <div data-hook="url">
+            <%= f.field_container :url, class: ['form-group'] do %>
+              <%= f.label :url, Spree.t(:domains) %><br />
+              <%= f.text_area :url, :cols => 60, :rows => 4, :class => 'form-control' %>
+              <%= error_message_on :store, :url %>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
 

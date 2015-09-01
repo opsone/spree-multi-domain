@@ -1,9 +1,19 @@
 fr:
-  store: Boutique
-  stores: Boutiques
-  new_store: Nouvelle Boutique
-  domains: Domaines
-  stores_admin: "Boutiques & Domaines"
-  manage_stores: Configurer les boutiques et les domaines associés
-  editing_store: Modifier une boutique
-  default: Defaut
+  spree:
+    store: Boutique
+    stores: Boutiques
+    new_store: Nouvelle Boutique
+    domains: Domaines
+    stores_admin: "Boutiques & Domaines"
+    manage_stores: Configurer les boutiques et les domaines associés
+    editing_store: Modifier une boutique
+    default: Defaut
+    default: Boutique par défaut ?
+    store_url: URL de la boutique
+    no_payment_methods_founded: Aucune méthode de payment trouvé
+    select_logo: Selectionner le logo
+    seo:
+      store_meta_keywords: Mots clés de la Boutiques
+      store_title: Titre de la boutique
+      store_meta_description: Description de la boutique
+

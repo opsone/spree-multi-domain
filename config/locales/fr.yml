@@ -1,5 +1,12 @@
 fr:
   spree:
+    activerecord:
+      attributes:
+        spree/store:
+          nom: Nom
+          seo_title: Titre de la boutique
+          meta_keywords: Mots clés de la Boutiques
+          meta_description: Description de la boutique
     store: Boutique
     stores: Boutiques
     new_store: Nouvelle Boutique

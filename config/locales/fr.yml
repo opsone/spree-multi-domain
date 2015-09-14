@@ -17,6 +17,7 @@ fr:
     default: Defaut
     default: Boutique par défaut ?
     store_url: URL de la boutique
+    store_default_locale: Langue par défaut
     no_payment_methods_founded: Aucune méthode de payment trouvé
     select_logo: Selectionner le logo
     seo:

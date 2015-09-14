@@ -52,6 +52,18 @@
               <%= error_message_on :store, :url %>
             <% end %>
           </div>
+
+          <div data-hook="default_locale">
+            <%= f.field_container :default_locale, class: ['form-group'] do %>
+              <%= f.label :default_locale, Spree.t(:store_default_locale) %><br />
+              <%= f.select :default_locale, options_for_select(available_locales_options, @store.default_locale.to_s) %>
+              <%= error_message_on :store, :default_locale %>
+            <% end %>
+          </div>
+          <script>
+            $('#store_default_locale').select2();
+          </script>
+
         </div>
       </div>
 
@@ -112,7 +124,7 @@
         <% end %>
       </div>
 
-      <div class="panel panel-default currency">
+      <div data-hook="currency" class="panel panel-default currency">
           <div class="panel-heading">
             <%= Spree.t(:currency_settings)%>
           </div>

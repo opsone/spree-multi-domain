@@ -4,16 +4,6 @@ module SpreeMultiDomain
 
     config.autoload_paths += %W(#{config.root}/lib)
 
-    def self.activate
-      Dir.glob(File.join(File.dirname(__FILE__), "../../app/**/*_decorator*.rb")) do |c|
-        Rails.application.config.cache_classes ? require(c) : load(c)
-      end
-
-      Spree::Config.searcher_class = Spree::Search::MultiDomain
-    end
-
-    config.to_prepare &method(:activate).to_proc
-
     initializer "templates with dynamic layouts" do |app|
       ActionView::TemplateRenderer.class_eval do
         def find_layout_with_multi_store(layout, locals)
@@ -38,6 +28,10 @@ module SpreeMultiDomain
       end
     end
 
+    initializer "multi_store permitted_attributes" do |app|
+      Spree::PermittedAttributes.store_attributes.push :default_locale
+    end
+
     initializer "add current_store to build_searcher" do |app|
       Spree::Core::ControllerHelpers::Search.class_eval do
         def build_searcher_with_store(params)
@@ -46,10 +40,20 @@ module SpreeMultiDomain
 
         alias_method_chain :build_searcher, :store
       end
+
+      Spree::Config.searcher_class = Spree::Search::MultiDomain
     end
 
     initializer 'spree.promo.register.promotions.rules' do |app|
       app.config.spree.promotions.rules << Spree::Promotion::Rules::Store
     end
+
+    def self.activate
+      Dir.glob(File.join(File.dirname(__FILE__), "../../app/**/*_decorator*.rb")) do |c|
+        Rails.application.config.cache_classes ? require(c) : load(c)
+      end
+    end
+
+    config.to_prepare &method(:activate).to_proc
   end
 end

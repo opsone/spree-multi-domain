@@ -20,6 +20,8 @@ fr:
     store_default_locale: Langue par défaut
     no_payment_methods_founded: Aucune méthode de payment trouvé
     select_logo: Selectionner le logo
+    phone: Téléphone
+    advertisment: Bandeaux d'annonce
     seo:
       store_meta_keywords: Mots clés de la Boutiques
       store_title: Titre de la boutique

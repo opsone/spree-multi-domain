@@ -45,6 +45,22 @@
             <% end %>
           </div>
 
+          <div data-hook="advertisment">
+            <%= f.field_container :advertisment, class: ['form-group'] do %>
+              <%= f.label :advertisment, Spree.t(:advertisment) %><br />
+              <%= f.text_field :advertisment, :class => 'form-control' %>
+              <%= error_message_on :store, :advertisment %>
+            <% end %>
+          </div>
+
+          <div data-hook="phone">
+            <%= f.field_container :phone, class: ['form-group'] do %>
+              <%= f.label :phone, Spree.t(:phone) %><br />
+              <%= f.text_area :phone, :class => 'form-control' %>
+              <%= error_message_on :store, :phone %>
+            <% end %>
+          </div>
+
           <div data-hook="url">
             <%= f.field_container :url, class: ['form-group'] do %>
               <%= f.label :url, Spree.t(:store_url) %><br />

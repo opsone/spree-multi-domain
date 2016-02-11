@@ -1,0 +1,3 @@
+<% if can? :manage, Spree::Store %>
+  <ul class="nav nav-sidebar"><%= tab :stores, label: Spree.t(:stores), icon: 'fire' %></ul>
+<% end %>

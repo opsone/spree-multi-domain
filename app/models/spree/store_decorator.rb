@@ -22,7 +22,7 @@ module Spree
 
     validates_attachment :logo, :content_type => { :content_type => %w(image/jpeg image/jpg image/png image/gif) }
 
-    translates :name, :meta_description, :meta_keywords, :seo_title, :advertisment
+    translates :name, :meta_description, :meta_keywords, :seo_title, :advertisement
 
   end
 end

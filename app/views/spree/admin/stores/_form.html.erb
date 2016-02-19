@@ -22,19 +22,14 @@
             <% end %>
           </div>
 
-          <div data-hook="default" class="form-group">
-            <strong><%= Spree.t(:store_default) %></strong>
-
-            <div class="radio">
-              <%= f.label :default, Spree.t(:default) do %>
-                <%= f.radio_button :default, "true" %>
-                <%= Spree.t(:say_yes) %>
-              <% end %>
-              <%= f.label :default, Spree.t(:default) do %>
-                <%= f.radio_button :default, "false" %>
-                <%= Spree.t(:say_no) %>
-              <% end %>
-            </div>
+          <div data-hook="default">
+            <%= f.field_container :default, class: ['form-group'] do %>
+              <label><%= Spree.t(:store_default) %></label>
+              <div class="radio">
+                <label><%= f.radio_button :default, 'true' %> <%= Spree.t(:say_yes) %></label>
+                <label><%= f.radio_button :default, 'false' %> <%= Spree.t(:say_no) %></label>
+              </div>
+            <% end %>
           </div>
 
           <div data-hook="mail_form_address">
@@ -83,42 +78,9 @@
         </div>
       </div>
 
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <%= Spree.t(:SEO) %>
-        </div>
-        <div class="panel-body">
-          <div class="col-md-6">
-            <%= f.label :seo_title, Spree.t(:'seo.store_title') %><br />
-            <%= f.text_field :seo_title, :class => 'form-control' %>
-
-            <%= f.label :meta_keywords, Spree.t(:'seo.store_meta_keywords') %><br />
-            <%= f.text_field :meta_keywords, :class => 'form-control' %>
-          </div>
-          <div class="col-md-6">
-            <%= f.label :meta_description, Spree.t(:'seo.store_meta_description') %><br />
-            <%= f.text_area :meta_description, :class => 'form-control', rows: 5 %>
-          </div>
-        </div>
-      </div>
-
-
     </div>
 
     <div data-hook="admin_store_form_fields_right" class="col-md-6">
-      <div data-hook="logo" class="panel panel-default">
-        <div class="panel-heading">
-          <%= Spree.t(:logo) %>
-        </div>
-        <div class="panel-body">
-          <%= image_tag(@store.logo.url(:small)) %>
-          <%= f.field_container :logo, class: ['form-group'] do %>
-            <%= f.label :logo, Spree.t(:select_logo) %><br />
-            <%= f.file_field :logo %>
-            <%= error_message_on :store, :logo %>
-          <% end %>
-        </div>
-      </div>
 
       <div data-hook="payment_methods" class="panel panel-default">
         <div class="panel-heading"><%= Spree.t(:payment_methods) %></div>
@@ -156,6 +118,27 @@
         $('#currency').select2();
       </script>
 
+    </div>
+
+    <div data-hook="admin_store_form_fields_bottom" class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <%= Spree.t(:SEO) %>
+        </div>
+        <div class="panel-body">
+          <div class="col-md-6">
+            <%= f.label :seo_title, Spree.t(:'seo.store_title') %><br />
+            <%= f.text_field :seo_title, :class => 'form-control' %>
+
+            <%= f.label :meta_keywords, Spree.t(:'seo.store_meta_keywords') %><br />
+            <%= f.text_field :meta_keywords, :class => 'form-control' %>
+          </div>
+          <div class="col-md-6">
+            <%= f.label :meta_description, Spree.t(:'seo.store_meta_description') %><br />
+            <%= f.text_area :meta_description, :class => 'form-control', rows: 5 %>
+          </div>
+        </div>
+      </div>
     </div>
 
   </div>

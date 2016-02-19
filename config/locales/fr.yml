@@ -14,14 +14,19 @@ fr:
     stores_admin: "Boutiques & Domaines"
     manage_stores: Configurer les boutiques et les domaines associés
     editing_store: Modifier une boutique
-    default: Defaut
-    default: Boutique par défaut ?
     store_url: URL de la boutique
+    store_default: Boutique par défaut ?
     store_default_locale: Langue par défaut
     no_payment_methods_founded: Aucune méthode de payment trouvé
     select_logo: Selectionner le logo
     phone: Téléphone
     advertisement: Bandeaux d'annonce
+    product_rule:
+      choose_stores: Choississez des boutiques
+    promotion_rule_types:
+      store:
+        name: Boutique
+        description: La boutique fait partie de la ou des boutique(s) spécifié(s)
     seo:
       store_meta_keywords: Mots clés de la Boutiques
       store_title: Titre de la boutique

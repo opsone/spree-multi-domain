@@ -5,7 +5,7 @@ fr:
         spree/store:
           nom: Nom
           seo_title: Titre de la boutique
-          meta_keywords: Mots clés de la Boutiques
+          meta_keywords: Mots clés de la boutique
           meta_description: Description de la boutique
     store: Boutique
     stores: Boutiques
@@ -21,14 +21,9 @@ fr:
     select_logo: Selectionner le logo
     phone: Téléphone
     advertisement: Bandeaux d'annonce
-    product_rule:
-      choose_stores: Choississez des boutiques
     promotion_rule_types:
       store:
         name: Boutique
         description: La boutique fait partie de la ou des boutique(s) spécifié(s)
-    seo:
-      store_meta_keywords: Mots clés de la Boutiques
-      store_title: Titre de la boutique
-      store_meta_description: Description de la boutique
-
+    store_rule:
+      choose_stores: Choississez des boutiques

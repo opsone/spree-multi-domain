@@ -1,6 +1,6 @@
 <div class="panel-body">
-  <div class="form-group products_rule_products">
-    <%= label_tag "#{param_prefix}store_ids_string", Spree.t('product_rule.choose_stores') %>
+  <div class="form-group stores_rule_stores">
+    <%= label_tag "#{param_prefix}store_ids_string", Spree.t('store_rule.choose_stores') %>
     <%= hidden_field_tag "#{param_prefix}[store_ids_string]", promotion_rule.store_ids.join(','), :class => 'store_picker' %>
   </div>
 </div>

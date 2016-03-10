@@ -1,6 +1,6 @@
-<p data-hook="admin_product_form_stores" class="omega two columns">
-  <%= f.label :stores, Spree.t(:stores)%><br />
-  <% Spree::Store.all.each do |store| %>
-    <%= check_box_tag "product[store_ids][]", store.id, @product.stores.include?(store) %> <%= store.name %>
+<div data-hook="admin_product_form_stores">
+  <%= f.field_container :store_ids, class: ['form-group'] do %>
+    <%= f.label :store_ids, Spree.t(:stores) %> *<br />
+    <%= f.collection_select :store_ids, Spree::Store.all, :id, :name, {}, {:multiple => true, :class => 'select2'} %>
   <% end %>
-</p>
+</div>

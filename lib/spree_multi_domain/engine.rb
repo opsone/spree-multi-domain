@@ -35,7 +35,7 @@ module SpreeMultiDomain
     initializer "add current_store to build_searcher" do |app|
       Spree::Core::ControllerHelpers::Search.class_eval do
         def build_searcher_with_store(params)
-          build_searcher_without_store(params.merge(store: current_store))
+          build_searcher_without_store(params.merge(store: current_store.id))
         end
 
         alias_method_chain :build_searcher, :store

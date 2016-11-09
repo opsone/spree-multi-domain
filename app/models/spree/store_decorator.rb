@@ -1,5 +1,11 @@
 module Spree
   Store.class_eval do
+    _validators.reject!{ |key, _| key == :name }
+
+    _validate_callbacks.reject! do |callback|
+      callback.raw_filter.attributes == [:name]
+    end
+
     has_and_belongs_to_many :products, :join_table => 'spree_products_stores'
     has_many :taxonomies
     has_many :orders

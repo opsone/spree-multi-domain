@@ -1,6 +1,6 @@
 module Spree
   Store.class_eval do
-    validators = Store._validators[:something]
+    validators = Store._validators[:name]
     v = validators.first
     validators.delete v
     filter = Store._validate_callbacks.find { |c| c.raw_filter == v }.filter

@@ -22,7 +22,7 @@ $.fn.storeAutocomplete = function (options) {
       data: function (term, page) {
         return {
           q: {
-            name_or_domains_or_code_cont: term,
+            name_or_url_or_code_cont: term,
           },
           token: Spree.api_key
         };

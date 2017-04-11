@@ -30,5 +30,6 @@ module Spree
 
     translates :name, :meta_description, :meta_keywords, :seo_title, :advertisement
 
+    self.whitelisted_ransackable_attributes = %w[name url code]
   end
 end
